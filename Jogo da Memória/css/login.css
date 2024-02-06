@@ -20,17 +20,18 @@ body {
 }
 
 .login_header img {
-  width: 300px;
+  width: 400px;
 }
 
 .login_header h1 {
   color: #333;
-  font-size: 1.5em;
+  font-size: 2em;
+  padding: 10px;
 }
 
 .login_header h2 {
   color: #ff0000;
-  font-size: 1em;
+  font-size: 1.5em;
 }
 
 .login_input {
