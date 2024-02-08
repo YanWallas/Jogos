@@ -21,6 +21,10 @@ const createElement = (tag, className) => {// função que cria o elemento
   return element;
 }
 
+const revealCard = ({ target }) => {
+
+}
+
 const createCard = (caracter) => {
   const card = createElement('div', 'card');//criando a div card com a class.
   const front = createElement('div', 'face front');;//criando a div front com a class.
@@ -31,13 +35,17 @@ const createCard = (caracter) => {
   card.appendChild(front);//colocando como filha(dentro) da div card.
   card.appendChild(back);//colocando como filha(dentro) da div card.
 
+  card.addEventListener('click', revealCard);
+
   return card;
 }
 
 const loadGame = () => {
-  const duplicateCaracters = [ ...caracters, ...caracters ]
+  const duplicateCaracters = [ ...caracters, ...caracters ];
 
-  duplicateCaracters.forEach((caracter) => {
+  const shuffleArray = duplicateCaracters.sort(() => Math.random() - 0.5 );
+
+  shuffleArray.forEach((caracter) => {
     const card = createCard(caracter);
     grid.appendChild(card);
   });
