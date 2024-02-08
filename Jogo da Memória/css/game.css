@@ -11,7 +11,6 @@
     aspect-ratio: 3/4;/*proporção da carta no tamanho*/
     width: 100%;
     height: 200px;
-    background-color: #333;
     border-radius: 5px;
     position: relative;
     transition: all 400ms ease;
@@ -26,6 +25,7 @@
     background-position: center;
     border: 2px solid #39813a;
     border-radius: 5px;
+    transition: all 400ms ease;
 }
 
 .front {
@@ -39,4 +39,9 @@
 
 .reveal-card {
     transform: rotateY(180deg);
+}
+
+.disabled-card {
+    filter: saturate(0);
+    opacity: 0.5;
 }

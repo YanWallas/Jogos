@@ -21,8 +21,57 @@ const createElement = (tag, className) => {// função que cria o elemento
   return element;
 }
 
-const revealCard = ({ target }) => {
+let firstCard = '';
+let secondCard = '';
 
+const checkEndGame = () => {
+  const disabledCards = document.querySelectorAll('.disabled-card');
+
+  if(disabledCards.length == 24) {
+    alert('Parabéns, você conseguiu');
+  }
+}
+
+const checkCards = () => {
+  const firstCaracter = firstCard.getAttribute('data-caracter');
+  const secondCaracter = secondCard.getAttribute('data-caracter');
+
+  if (firstCaracter == secondCaracter) {
+    firstCard.firstChild.classList.add('disabled-card');
+    secondCard.firstChild.classList.add('disabled-card');
+
+    firstCard = '';
+    secondCard = '';
+
+    checkEndGame();
+
+  } else {
+    setTimeout(() => {
+      firstCard.classList.remove('reveal-card');
+      secondCard.classList.remove('reveal-card');
+
+      firstCard = '';
+      secondCard = '';
+    }, 500);
+  }
+}
+
+const revealCard = ({ target }) => {
+  if(target.parentNode.className.includes('reveal-card')) {
+    return;
+  };
+
+  if(firstCard == '') {//Verificando se a primeira carta esta vazia(se é a primeira mesma)
+    target.parentNode.classList.add('reveal-card');
+    firstCard = target.parentNode;
+  } else if(secondCard == '') {//verificando se a segunda carta esta vazia.
+    target.parentNode.classList.add('reveal-card');
+    secondCard = target.parentNode;
+
+    checkCards();
+  }
+
+  target.parentNode.classList.add('reveal-card');
 }
 
 const createCard = (caracter) => {
@@ -36,7 +85,7 @@ const createCard = (caracter) => {
   card.appendChild(back);//colocando como filha(dentro) da div card.
 
   card.addEventListener('click', revealCard);
-
+  card.setAttribute('data-caracter', caracter);
   return card;
 }
 
