@@ -8,40 +8,41 @@
 }
 
 .card {
-    aspect-ratio: 3/4;/*proporção da carta no tamanho*/
-    width: 100%;
-    height: 200px;
-    border-radius: 5px;
-    position: relative;
-    transition: all 400ms ease;
-    transform-style: preserve-3d;
+  aspect-ratio: 3/4;/*proporção da carta no tamanho*/
+  width: 100%;
+  height: 200px;
+  border-radius: 5px;
+  position: relative;
+  transition: all 400ms ease;
+  transform-style: preserve-3d;
 }
 
 .face {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    background-size: cover;
-    background-position: center;
-    border: 2px solid #39813a;
-    border-radius: 5px;
-    transition: all 400ms ease;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-size: cover;
+  background-position: center;
+  border: 2px solid #39813a;
+  border-radius: 5px;
+  transition: all 400ms ease;
 }
 
 .front {
-    transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
 
 .back {
-    background-image: url('../img/voltar.png');
-    backface-visibility: hidden;
+  background-image: url('../img/voltar.png');
+  backface-visibility: hidden;
 }
 
 .reveal-card {
-    transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
 
 .disabled-card {
-    filter: saturate(0);
-    opacity: 0.5;
+  filter: saturate(0);
+  opacity: 0.5;
 }
+
