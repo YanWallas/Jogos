@@ -1,4 +1,6 @@
 const grid = document.querySelector('.grid');// buscando a div com a class grid.
+const spanPlayer = document.querySelector('.player');
+const timer = document.querySelector('.timer');
 
 const caracters = [
   'gojo',
@@ -26,7 +28,8 @@ const checkEndGame = () => {
   const disabledCards = document.querySelectorAll('.disabled-card');
 
   if(disabledCards.length == 20) {
-    alert('Parabéns, você conseguiu');
+    clearInterval(this.loop);
+    alert(`Parabens, ${spanPlayer.innerHTML}! Seu tempo foi:${timer.innerHTML}`);
   }
 }
 
@@ -98,4 +101,16 @@ const loadGame = () => {
   });
 }
 
-loadGame();
+const startTimer = ( ) => {
+
+  this.loop = setInterval(() => {
+    const currentTime = +timer.innerHTML;// O + antes da letra, transforma em Number.
+    timer.innerHTML = currentTime + 1;
+  }, 1000);
+}
+
+window.onload = () => {
+  spanPlayer.innerHTML = localStorage.getItem('player');
+  startTimer();
+  loadGame();
+}
