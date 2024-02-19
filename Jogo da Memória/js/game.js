@@ -8,9 +8,7 @@ const caracters = [
   'luffy',
   'nami',
   'naruto',
-  'pika',
   'sasuke',
-  'um',
   'vegeta',
   'zoro',
 ];
@@ -27,7 +25,7 @@ let secondCard = '';
 const checkEndGame = () => {
   const disabledCards = document.querySelectorAll('.disabled-card');
 
-  if(disabledCards.length == 24) {
+  if(disabledCards.length == 20) {
     alert('Parabéns, você conseguiu');
   }
 }

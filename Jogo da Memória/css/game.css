@@ -1,10 +1,31 @@
+main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100v;
+  background-image: url('../img/fundo-bg.png');
+  background-size: cover;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 20px 50px;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: red;
+  width: 100%;
+  max-width: 800px;
+}
+
 .grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);/*5 colunas de 1 fração*/
     gap: 15px;/*distancia entre as frações*/
     width: 100%;
     max-width: 800px;
-    margin: 100px auto;
+    margin: 0 auto;
 }
 
 .card {
